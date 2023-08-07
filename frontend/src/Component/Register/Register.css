@@ -1,0 +1,103 @@
+.signUp{
+  background-image: url("https://img.freepik.com/free-vector/instagram-background-gradient-colors_23-2147835128.jpg?w=740&t=st=1688830951~exp=1688831551~hmac=d95ebf7035cfde448290ed9701db5e17a6987ef7e820fce4f456866c6fe9f0ec");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerForms{
+  width: 40%;
+  border: 2px solid red;
+  /* background-color: white; */
+  background-color: #ffffff4d;
+  height: fit-content;
+}
+
+.registerForms >h3{
+  border: 2px solid rgb(0, 255, 17);
+  padding: 0px;
+}
+
+
+.signUpLogo{
+  width: 200px;
+  max-height: 50px;
+  object-fit: contain;
+  padding: 0px;
+  margin: 10px 10px;
+}
+
+.registerForms {
+  /* background-color: white; */
+  background-color: #ffffff4d;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 1vmax;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registerInput {
+  box-sizing: border-box;
+  padding: 10px 10px;
+  width: 80%;
+   border-radius: 10px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.registerForms > input[type="file"] {
+  border-radius: 30px;
+  margin: 30px 60px;
+} 
+
+.registerForms > input[type="file"]::-webkit-file-upload-button {
+  background-color: rgb(38, 63, 173);
+  color: white;
+  width: 50%;
+  padding: 5px;
+  border-radius: 20px;
+  border: none;
+  font: 400 0.85rem "Roboto", sans-serif;
+  margin-left: 50px;
+} 
+
+ .registerForms > a {
+  align-self: flex-end;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.342);
+  margin: 2vmax;
+} 
+
+
+.login-form > a > h6{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+ 
+
+.registerForms > button{
+  width: 75%;
+  background-color: rgb(21, 21, 231);
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

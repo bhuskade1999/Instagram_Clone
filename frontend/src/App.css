@@ -1,0 +1,18 @@
+ *{
+    margin:0%;
+    padding :0%
+ }
+
+/* 
+ .app-grid-container{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns:19% 81%;
+  border: 7px solid black;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position:fixed;
+  top: 0%;
+   
+} */

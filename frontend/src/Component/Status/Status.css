@@ -1,0 +1,179 @@
+.status {
+    width: 400px;
+    background-color: black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 50px white;
+     padding: 0 1vmax 1vmax; 
+     border: 3px solid rgb(12, 2, 62) ;
+  }
+
+  .status:hover{
+    border-top: 3px solid rgb(245, 4, 152);
+    border-right: 3px solid rgb(108, 230, 9);
+    border-bottom: 3px solid rgb(237, 8, 8);
+    border-left: 4px solid rgb(10, 26, 204);
+    /* border: 3px solid rgb(108, 230, 9); */
+  }
+  
+  .statusHeader {
+    margin-top: 5px;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2px;
+    color: white;
+    position: relative;
+  }
+
+  .header-btn{
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0px;
+  
+  }
+
+
+  .header-btn > button{
+    margin: 0px 0px;
+  }
+
+
+ 
+ .statusHeader > h5{
+     margin: 12px 0px;
+ }
+ 
+  .statusHeader > img{
+     margin: 5px 10px;
+     width: 45px;
+     height: 45px;
+     border-radius: 50%;
+ }
+
+  .statusHeader > button {
+    border-radius: 100%;
+    color: rgba(0, 0, 0, 0.582);
+  }
+  
+  .status > img {
+    margin-top: 5px;
+    width: 100%;
+    max-height: 400px;
+    border-radius: 5px;
+  }
+
+  .status > video {
+    width: 100%;
+  }
+  
+  .StatusDetails {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* .StatusDetails > a {
+    text-decoration: none;
+    color:white;
+    margin: 1vmax;
+  } */
+
+  .user-caption > a {
+    text-decoration: none;
+    color:white;
+    margin: 1vmax;
+  }
+
+
+
+
+
+
+ .statusFooter{
+  display: flex;
+  justify-content: flex-start;
+  
+ }
+
+  
+  .statusFooter > button {
+    border-radius: 100%;
+    transition: all 0.3s;
+  }
+  
+  .statusFooter > button:hover {
+    transform: translateY(-4px);
+  }
+  
+  .statusFooter > button > svg {
+    font-size: 2vmax;
+  }
+  
+  .liked-btn{
+    display: flex;
+    justify-content: flex-start;
+  }  
+
+
+  .liked-btn > button{
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: "pointer";
+    margin-left: 20px;
+            
+  }
+
+
+
+  .DialogBox {
+    min-width: 500px;
+    height: 100vh;
+    padding: 2vmax;
+    overflow-x: hidden;
+    overflow-y: hidden;
+     
+  }
+
+  .commentForm {
+    display: flex;
+    margin: 1vmax;
+  }
+  
+  .commentForm > input {
+    width: 100%;
+    padding: 1vmax 2vmax;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    border-radius: 30px 0 0 30px;
+    font: 100 1vmax "Roboto", sans-serif;
+  }
+  .commentForm > button {
+    border-radius: 0%;
+  }
+  
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 600px) {
+    .post {
+      width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      border: 1px solid rgba(0, 0, 0, 0.068);
+      padding: 0 0 4vw;
+      margin: 0;
+    }
+  
+    .postFooter > button > svg {
+      font-size: 8vw;
+    }
+  }

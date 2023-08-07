@@ -1,0 +1,71 @@
+.signIn{
+    background-image: url("https://img.freepik.com/free-vector/instagram-background-gradient-colors_23-2147835128.jpg?w=740&t=st=1688830951~exp=1688831551~hmac=d95ebf7035cfde448290ed9701db5e17a6987ef7e820fce4f456866c6fe9f0ec");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form{
+    width: 100%;
+    background-color: #ffffff4d;
+    padding: 30px;
+    border: 1px solid rgb(129, 121, 121);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+}
+
+
+.login-form > div {
+    padding: 10px;
+}
+
+
+.signInLogo{
+    width: 200px;
+    max-height: 50px;
+    object-fit: contain;
+    padding: 0px;
+    margin: 10px 50px;
+   
+  }
+
+.login-form > div > input{
+    width: 95%;
+   border-radius: 5px;
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+
+#login-btn{
+    width: 100%;
+    background-color: #1773EA;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: 700;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+
+.login-form > a {
+    align-self: flex-end;
+    text-decoration: none;
+    color: rgba(9, 4, 4, 0.342);
+    margin: 15px;
+    
+  }
+
+
+  .login-form > a > h6{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+  }

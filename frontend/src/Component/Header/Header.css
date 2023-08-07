@@ -1,0 +1,54 @@
+ .header-item{
+  height: 100vh;
+  align-items: center;
+  border-right: 1px solid white;
+ }
+
+ .header{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid white;
+ }
+
+
+
+ .header-logo{
+    background-image: url("https://www.seekpng.com/png/full/813-8136306_trend-new-instagram-logo-2019-png-edigital-instagram.png");
+    margin-top: 40px;
+    width: 60%;
+    height: 8%;
+    background-size: cover;
+    display: flex;
+}
+
+
+
+
+
+.icon-box{
+    display: flex;
+    justify-content: center;
+    margin-top:  40px;
+     
+}
+
+
+.icon-box >a > svg{
+    font-size:  3rem;
+    margin-top: 10px;
+    content: home;
+}
+
+.icon-box >p{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0px;
+    padding-left: 10px;
+    cursor: pointer;
+    content: home;
+}

@@ -1,0 +1,20 @@
+.testing-item{
+    height: 100vh;
+    align-items: center;
+    background-image: url("https://img.freepik.com/free-vector/instagram-background-gradient-colors_23-2147835128.jpg?w=740&t=st=1688830951~exp=1688831551~hmac=d95ebf7035cfde448290ed9701db5e17a6987ef7e820fce4f456866c6fe9f0ec");
+
+   }
+  
+   .testing{
+      width: 100%;
+      height: 100%;
+      /* background-color: black; */
+      /* background-image: linear-gradient(to right, #fff5bc, #cec1ff); */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid white;
+   }
+  
+   

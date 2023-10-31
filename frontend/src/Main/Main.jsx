@@ -10,18 +10,16 @@ import UpdateProfile from "../Component/UpdateProfile/UpdateProfile"
 import UpdatePassword from "../Component/UpdatePassword/UpdatePassword"
 import ForgotPassword from "../Component/ForgotPassword/ForgotPassword"
 import ResetPassword from "../Component/ResetPssword/ResetPassword"
-// import UserProfile from "./Component/UserProfile/UserProfile";
 import Search from "../Component/Search/Search"
 import NotFound from '../Component/NotFound/NotFound';
 import NewStory from '../Component/NewStory/NewStory';
 import Profile from '../Component/Account/Profile';
-// import ProfileU from '../Component/ProfileU/ProfileU';
-import Header from "../Component/Header/Header"
+import {Header,Header2} from "../Component/Header/Header"
 import HomeT from '../Component/HomeT/HomeT';
-// import Testing from './Component/Testing/Testing';
 import UserProfile from "../Component/UserProfileT/UserProfile"
 import Testing from '../Component/Testing/Testing';
-// import SignUp from "../Component/SignUp/SignUp"
+import SavedPost from "../Component/SavedPost/SavedPost"
+import Chat from "../Component/Chat/Chat"
 
 function Main() {
   const dispatch = useDispatch()
@@ -38,7 +36,7 @@ function Main() {
       
       <Router>
 
-        { isAuthenticated ? <Header/> : <Testing/> }
+        { isAuthenticated ? <Header/> : <Header2/> }
 
         <Routes>
 
@@ -52,8 +50,16 @@ function Main() {
           <Route path="/forgot/password" element={isAuthenticated ? <UpdatePassword /> : <ForgotPassword />} />
           <Route path="/password/reset/:token" element={isAuthenticated ? <UpdatePassword /> : <ResetPassword />} />
           <Route path="/user/:id" element={isAuthenticated ? <UserProfile /> : <Login />} />
+          {/* <Route path="/user/:id" element={isAuthenticated ? <Testing /> : <Login />} /> */}
           <Route path="/search" element={isAuthenticated ? <Search /> : <Login />} />
+          <Route path="/saved" element={isAuthenticated ? <SavedPost /> : <Login />} />
+          <Route path="/chat" element={isAuthenticated ? <Chat /> : <Login />} />
           <Route path="*" element = { <NotFound/> } />
+
+          <Route path="/testing" element={isAuthenticated ? <Testing /> : <Login />} />
+
+          
+    
           
 
         </Routes>

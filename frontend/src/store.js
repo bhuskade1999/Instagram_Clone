@@ -1,6 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit"
 import { allUsersReducer, postOfFollowingReducer, userProfileReducer, userReducer,} from "./Reducer/user"
-import {likesReducer, myPostsReducer, userPostReducer} from "./Reducer/Post"
+import {likesReducer, myPostsReducer,myStoryReducer, userPostReducer} from "./Reducer/Post"
+import {chatReducer,messageReducer} from "./Reducer/Chat"
+
 
 const store =configureStore({
     reducer:{
@@ -9,8 +11,11 @@ const store =configureStore({
         allUsers : allUsersReducer,
         likes : likesReducer,
         myPosts : myPostsReducer,
+        myStory : myStoryReducer,
         userPosts:userPostReducer,
-       userProfile :userProfileReducer
+       userProfile :userProfileReducer,
+       chat:chatReducer,
+       message:messageReducer
 
     }
 })

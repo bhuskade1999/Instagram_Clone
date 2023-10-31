@@ -67,18 +67,12 @@
 
   .status > video {
     width: 100%;
+    max-height: 350px;
   }
   
-  .StatusDetails {
-    display: flex;
-    justify-content: space-between;
-  }
   
-  /* .StatusDetails > a {
-    text-decoration: none;
-    color:white;
-    margin: 1vmax;
-  } */
+  
+   
 
   .user-caption > a {
     text-decoration: none;
@@ -87,6 +81,12 @@
   }
 
 
+
+
+.story-btn{
+  display: flex;
+  justify-content: flex-end;
+}
 
 
 
@@ -154,6 +154,47 @@
     border-radius: 0%;
   }
   
+
+
+
+
+/* ---------------------------- Testing purpose----------------------- */
+.timer {
+  width: 100%;
+  height: 1px;
+  background-color: #b74343;
+  margin-top: 10px;
+}
+
+.timer-fill {
+  height: 100%;
+  background-color: #e7e9e7;
+  width: 0%;
+  transition: width 0.1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#videoPlayer::-webkit-media-controls-start-playback-button,
+#videoPlayer::-webkit-media-controls-enclosure,
+#videoPlayer::-webkit-media-controls-panel,
+#videoPlayer::-webkit-media-controls-play-button,
+#videoPlayer::-webkit-media-controls-volume-slider {
+  display: none !important;
+}
+
 
 
 

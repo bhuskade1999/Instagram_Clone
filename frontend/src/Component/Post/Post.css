@@ -83,7 +83,7 @@
  .postFooter{
   display: flex;
   justify-content: flex-start;
-  
+  position: relative;
  }
 
   
@@ -99,7 +99,32 @@
   .postFooter > button > svg {
     font-size: 2vmax;
   }
+
+
+  .save-btn{
+     display: flex;
+     position: absolute;
+     right: 0px;
+     top: 0px;
+  }
+
+  .save-btn >button>svg{
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+
+  .save-btn > button {
+    transition: all 0.3s;
+  }
   
+  .save-btn > button:hover {
+    transform: translateY(-4px);
+  }
+
+
+  
+
   .liked-btn{
     display: flex;
     justify-content: flex-start;

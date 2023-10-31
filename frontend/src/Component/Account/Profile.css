@@ -73,12 +73,6 @@
 
 
 
-
-
-
-  
-
-
 .follow-button{
     margin: 20px 30px;
     width: 50%;
@@ -96,27 +90,34 @@
     font-weight: 700;
 }
 
-.posts-tag{
+ 
+.posts-tags{
     width: 70%;
     display: flex;
+    padding: 5px;
     justify-content: center;
     color: white;
     margin-left: 120px;
-    
-
-}
-
-.posts-tag >h5{
-    padding: 10px 5px;
-    font-size: 0.85rem;
-    font-weight: 700;
     border-bottom: 1px solid white;
-}
-.posts-tag >svg{
-    padding: 10px 5px;
-    font-size: 1rem;
- 
     
+}
+
+.posts-tags > a{
+    font-size: 0.90rem;
+    text-decoration: none;
+}
+
+.posts-tags > a >h5{
+    padding: 5px 10px;
+    font-size: 0.90rem;
+    color: white;
+   
+    
+}
+
+.posts-tags > a > h5 >svg{
+    font-size: 0.90rem;
+    color: white;
 }
 
 .no-post-msg{

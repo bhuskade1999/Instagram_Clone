@@ -12,22 +12,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid white;
+    justify-content: center;
+    /* border-right: 1px solid white; */
+ 
  }
 
 
 
  .header-logo{
     background-image: url("https://www.seekpng.com/png/full/813-8136306_trend-new-instagram-logo-2019-png-edigital-instagram.png");
-    margin-top: 40px;
+    margin-top: 10px;
     width: 60%;
     height: 8%;
     background-size: cover;
-    display: flex;
 }
 
 
-
+.header-icon{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxcFncjSRYjJWiHjU_2ksLkcSNdh4gG9lnUA&usqp=CAU");
+    background-size: cover;
+    margin-top: 12px;
+    width: 2.2rem;
+    height: 100%;
+   
+}
 
 
 .icon-box{
@@ -52,3 +60,31 @@
     cursor: pointer;
     content: home;
 }
+
+
+
+/* -----------------Testing Part -------------- */
+
+
+
+
+.testing-item{
+    height: 100vh;
+    align-items: center;
+    background-image: url("https://img.freepik.com/free-vector/instagram-background-gradient-colors_23-2147835128.jpg?w=740&t=st=1688830951~exp=1688831551~hmac=d95ebf7035cfde448290ed9701db5e17a6987ef7e820fce4f456866c6fe9f0ec");
+
+   }
+  
+   .testing{
+      width: 100%;
+      height: 100%;
+      /* background-color: black; */
+      /* background-image: linear-gradient(to right, #fff5bc, #cec1ff); */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid white;
+   }
+  
+   

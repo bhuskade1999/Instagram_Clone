@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
 import { likePost, addCommentOnPost, updatePost, deletePost } from "../../Actions/Post"
-import { getFollowingPosts, getMyPosts, loadUser } from "../../Actions/User"
+import { getFollowingPosts, getMyPosts, getMySavedPosts,loadUser ,saveAndUnSavePost} from "../../Actions/User"
+
+
 import User from "../User/User"
 import "./Post.css"
 import {
@@ -13,7 +15,9 @@ import {
     ChatBubbleOutline,
     DeleteOutline,
 } from "@mui/icons-material";
-import CommentCard from "../CommentCard/CommentCard";
+import BookmarkIcon from '@mui/icons-material/Bookmark';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+ import CommentCard from "../CommentCard/CommentCard";
 
 
 
@@ -29,6 +33,8 @@ const Post = ({
     isDelete = false,
     isAccount = false,
 }) => {
+
+    const [savedPost, setSavedPost] = useState(false)
 
     const [liked, setLikes] = useState(false)
     const [likesUser, setLikeUser] = useState((false))
@@ -47,6 +53,7 @@ const Post = ({
     const haddleLike = async () => {
         setLikes(!liked);
         await dispatch(likePost(postId))
+        console.log(user)
 
         if (isAccount) {
             dispatch(getMyPosts())
@@ -55,6 +62,15 @@ const Post = ({
         }
 
     };
+
+
+    const haddlesavePost = async () => {
+        setSavedPost(!savedPost);
+        await dispatch(saveAndUnSavePost(postId))
+        dispatch(getMySavedPosts())
+        dispatch(loadUser())
+    };
+
 
 
     const updateCaptionHandler = async (e) => {
@@ -92,7 +108,16 @@ const Post = ({
                 setLikes(true)
             }
         });
-    }, [likes, user._id])
+
+        user.savedPost.forEach((items) => {
+            if (items._id === postId) {
+                setSavedPost(true)
+            }
+        });
+
+
+
+    }, [likes, user._id, user.savedPost, postId])
 
 
 
@@ -136,7 +161,16 @@ const Post = ({
                 </Button>
 
                 {isDelete ? <Button onClick={deletePostHandler} disabled={loading}> <DeleteOutline disabled={loading} /> </Button> : null}
+
+                <div className="save-btn">
+                    <Button onClick={haddlesavePost}>
+                        {savedPost ? <BookmarkIcon style={{ color: "white" }} /> : <BookmarkBorderOutlinedIcon />}
+                    </Button>
+                </div>
+
             </div>
+
+
 
             <div className="liked-btn">
                 <button
@@ -162,7 +196,6 @@ const Post = ({
             </div>
 
 
-
             <Dialog open={likesUser} onClose={() => setLikeUser(!likesUser)}>
                 <div className="DialogBox">
                     <Typography variant="h4"> Liked By</Typography>
@@ -184,7 +217,7 @@ const Post = ({
                     <Typography variant="h4">Comments</Typography>
                     <form className="commentForm" onSubmit={addComentHandler}>
                         <input type="text" value={commentValue} onChange={(e) => setCommentValue(e.target.value)}
-                            placeholder="comment here.." required />
+                            placeholder="Add a comment..." required />
                         <Button type="submit" variant="contained"> Add </Button>
 
                     </form>

@@ -112,3 +112,55 @@ return res.status(200).json({success:true,message:"Story Uploaded and its valid 
         console.error('Error while deleting Story:', err);
       }
     };
+
+
+
+    //=================================  Story Views ==========================
+
+
+    
+    exports.storyViews = async (req,res) => {
+      try {
+        const story = await Story.findById(req.params.id);
+
+        if(story.views.includes(req.user._id)){
+          console.log("Story already viewed Successfully")
+          return res.status(200).json({ success: true, message: "Story already viewed Successfully" })
+        }
+
+        if(req.user._id.toString() == story.owner.toString()){
+          console.log("owner of Story")
+          return res.status(200).json({ success: true, message: "Story already viewed Successfully" })
+        }
+
+        story.views.unshift(req.user._id)
+        await story.save()
+
+        console.log("Story Viewed")
+        return res.status(200).json({ success: true, message: "Story viewed Successfully" })
+
+       } catch (err) {
+        console.error('Error while deleting Story:', err);
+      }
+    };
+
+    //=======================================Getting My story ===================
+
+    exports.getMyStory = async (req, res) => {
+      try {
+        const user = await User.findById(req.user._id)
+        const story = []
+    
+        for (let i = 0; i < user.story.length; i++) {
+          const stories = await Story.findById(user.story[i]).populate("owner views")
+          story.push(stories)
+        }
+    
+    
+        res.status(200).json({ success: true, story })
+    
+      } catch (err) {
+        res.status(500).send({ success: false, message: err.message });
+      }
+    
+    }

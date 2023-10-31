@@ -20,7 +20,7 @@ createdAt:{
     default:Date.now
 },
 
-likes:[
+views:[
     {
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'

@@ -45,7 +45,7 @@ exports.login = async (req, res) => {
   try {
 
     const { email, password } = req.body
-    const user = await User.findOne({ email: email }).select("+password").populate("posts followers following");
+    const user = await User.findOne({ email: email }).select("+password").populate("posts followers following savedPost");
 
     if (!user) return res.status(400).json({ success: false, message: "User does not Exists" })
 
@@ -366,7 +366,7 @@ exports.deleteProfile = async (req, res) => {
 exports.myProfile = async (req, res) => {
   try {
 
-    const user = await User.findById(req.user._id).populate("posts followers following requests story")
+    const user = await User.findById(req.user._id).populate("posts followers following requests story savedPost")
 
     res.status(200).json({ success: true, user })
 
@@ -387,6 +387,7 @@ exports.getUserProfile = async (req, res) => {
     }
 
     res.status(200).json({ success: true, user })
+    //res.status(200).json(user)
 
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
@@ -438,6 +439,27 @@ exports.getMyPosts = async (req, res) => {
 
 
     res.status(200).json({ success: true, posts })
+
+  } catch (err) {
+    res.status(500).send({ success: false, message: err.message });
+  }
+
+}
+
+//=============================get my saved post =====================================
+
+exports.getMySavedPosts = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id)
+    const savedPost = []
+
+    for (let i = 0; i < user.savedPost.length; i++) {
+      const post = await Post.findById(user.savedPost[i]).populate("likes comments.user owner")
+      savedPost.push(post)
+    }
+
+
+    res.status(200).json({ success: true, savedPost })
 
   } catch (err) {
     res.status(500).send({ success: false, message: err.message });
@@ -562,3 +584,35 @@ exports.resetPassword = async (req, res) => {
     });
   }
 };
+
+
+
+
+//================================== Saved And Unsaved ==================================
+
+exports. savedAndUnSavedPost = async (req, res) => {
+  try {
+      const post = await Post.findById(req.params.id)
+      const user = await User.findById(req.user._id)
+
+      if (user.savedPost.includes(post._id)) {
+          const index = user.savedPost.indexOf(post._id)
+          user.savedPost.splice(index, 1)
+          await user.save()
+          return res.status(200).json({ success: true, message: "Post UnSaved" })
+
+      } else {
+          user.savedPost.unshift(post._id)
+          await user.save()
+          return res.status(200).json({ success: true, message: "Post saved" })
+      }
+
+  } catch (err) {
+      res.status(500).json({
+          success: false,
+          message: err.message
+      })
+  }
+
+
+}

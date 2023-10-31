@@ -63,6 +63,13 @@ const UserSchema = new mongoose.Schema({
         }
     ],
 
+    savedPost:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Post'
+        }
+    ],
+
     resetPasswordToken :String,
     resetPasswordExpires: Date,
     

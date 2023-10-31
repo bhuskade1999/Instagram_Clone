@@ -8,9 +8,9 @@ import User from "../User/User"
 import Post from '../Post/Post'
 import Status from '../Status/Status'
 import { useDispatch, useSelector } from "react-redux"
-import { getAllUsers, getFollowingPosts, getFollowingstory } from "../../Actions/User"
+import { getAllUsers, getFollowingPosts, getFollowingstory ,getMyStory} from "../../Actions/User"
 import { useAlert } from "react-alert";
-import Loader from "../Loader/Loader"
+//import Loader from "../Loader/Loader"
 import { AddOutlined } from "@mui/icons-material";
 
 
@@ -63,12 +63,13 @@ const HomeT = () => {
 
     const alert = useAlert()
 
+    const { posts, story, error } = useSelector((state) => state.postOfFollowing)
 
-    const { loading, posts, story, error } = useSelector((state) => state.postOfFollowing)
-
-    const { users, loading: usersLoading } = useSelector((state) => state.allUsers)
+    const { users } = useSelector((state) => state.allUsers)
 
     const { user: me } = useSelector((state) => state.user)
+
+    const { story :myStory } = useSelector((state) => state.myStory)
 
     const { error: likeError, message } = useSelector((state) => state.likes)
 
@@ -76,6 +77,7 @@ const HomeT = () => {
         dispatch(getFollowingPosts());
         dispatch(getFollowingstory());
         dispatch(getAllUsers())
+        dispatch(getMyStory())
     }, [dispatch]);
 
 
@@ -101,6 +103,16 @@ const HomeT = () => {
     }, [scrollX]);
 
 
+const handleVideoEnd = () => {
+    setmyStoryToggle(!myStoryToggle)
+        // closeModal();
+      };
+
+
+
+
+
+
 
 
     // return loading === true || usersLoading === true ? <Loader /> :(
@@ -122,7 +134,6 @@ const HomeT = () => {
                     </div>
 
                     <div className="own-story">
-
                         {
                             me.story && me.story.length > 0 ? me.story.map((post) => (
                                 <div>
@@ -149,24 +160,25 @@ const HomeT = () => {
                         }
 
                         {
-                            me.story && me.story.length > 0 ?
-                                <Dialog open={myStoryToggle} onClose={() => setmyStoryToggle(!myStoryToggle)}
+                            myStory && myStory.length > 0 ?
+                                <Dialog open={myStoryToggle} onClose={() => setmyStoryToggle(!myStoryToggle)} onEnded={handleVideoEnd}
                                     style={{
                                         width: "500px",
                                         position: "fixed", top: "0%", left: "25%"
                                     }} >
-                                    <Status
-                                        key={me.story[0]._id}
-                                        storyId={me.story[0]._id}
-                                        caption={me.story[0].caption}
-                                        ownerName={me.name}
-                                        storyImage={me.story[0].image.url}
-                                        ownerImage={me.avatar.url}
-                                        ownerId={me._id}
+                                    <Status  
+                                        key={myStory[0]._id}
+                                        storyId={myStory[0]._id}
+                                        caption={myStory[0].caption}
+                                        ownerName={myStory[0].owner.name}
+                                        storyImage={myStory[0].image.url}
+                                        ownerImage={myStory[0].owner.avatar.url}
+                                        views={myStory[0].views}
+                                        ownerId={myStory[0].owner._id}
                                         isDelete={true}
+                                        isAccount={true}
                                     />
                                 </Dialog> : null
-
                         }
 
 
@@ -196,6 +208,7 @@ const HomeT = () => {
                             }}
                             open={selectedStory !== null}
                             onClose={closeModal}
+                            onEnded={closeModal}
                         // contentLabel="Story Modal"
                         >
                             {selectedStory && (

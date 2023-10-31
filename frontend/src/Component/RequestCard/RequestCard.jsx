@@ -5,7 +5,7 @@ import { Link,useParams } from "react-router-dom"
 import { Button, Typography } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import { acceptsUserRequest, rejectsUserRequest,getUserProfile } from "../../Actions/User"
+import { acceptsUserRequest, rejectsUserRequest,getUserProfile,loadUser } from "../../Actions/User"
 
 
 const RequestCard = ({userId, name, avatar }) => {
@@ -15,14 +15,14 @@ const RequestCard = ({userId, name, avatar }) => {
 
     const AcceptHandler = async () => {
         await dispatch(acceptsUserRequest(userId))
-       // await dispatch(getUserProfile(params.id))
-       window.location.reload();
+        await dispatch(getUserProfile(params.id))
+        await dispatch(loadUser())
     }
 
     const RejectHandler = async () => {
         await dispatch(rejectsUserRequest(userId))
-           //await dispatch(getUserProfile(params.id))
-        window.location.reload();
+        await dispatch(getUserProfile(params.id))
+        await dispatch(loadUser())
     }
 
     return (

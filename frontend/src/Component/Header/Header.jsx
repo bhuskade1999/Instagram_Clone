@@ -1,5 +1,5 @@
 
-import React, { useState} from 'react'
+import React, { useState,useEffect} from 'react'
 import "./Header.css"
 import { Link } from "react-router-dom"
 
@@ -13,22 +13,35 @@ import {
   AccountCircle,
   AccountCircleOutlined,
 } from "@mui/icons-material";
-import { Typography } from '@mui/material';
+
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+ 
 
 
+ const Header = () => {
 
+  const [ratio, setRatio] = useState(window.innerWidth / window.innerHeight);
+  
+  useEffect(() => {
+    const resizeRatio = () => {
+      setRatio(window.innerWidth / window.innerHeight);
+    };
 
+    window.addEventListener("resize", resizeRatio);
 
-const Header = () => {
+    return () => {
+      window.removeEventListener("resize", resizeRatio);
+    };
+  }, [ratio]);
 
   const [tab, setTab] =  useState(window.location.pathname)
-
 
 
   return (
     <div className='header-item'>
       <div className="header">
-        <div className="header-logo"></div>
+
+        <div className = { ratio > 2 ? "header-logo" : "header-icon" }></div>
 
         <div className='icon-box'>
           <Link to="/" onClick={() => setTab("/")}>
@@ -63,10 +76,16 @@ const Header = () => {
               tab === "/account" ? <AccountCircle style={{ color: "white" }} /> : <AccountCircleOutlined />
             }
           </Link>
-
         </div>
 
 
+        <div className='icon-box'>
+          <Link to="chat" onClick={() => setTab("/chat")}>
+            {
+              tab === "/chat" ? <ChatOutlinedIcon style={{ color: "white" }} /> : <ChatOutlinedIcon />
+            }
+          </Link>
+        </div>
 
       </div>
 
@@ -74,4 +93,43 @@ const Header = () => {
   )
 }
 
-export default Header
+
+
+
+
+
+const Header2 = () => {
+
+  return (
+    <div className='testing-item'>
+      <div className="testing">
+      </div>
+
+    </div>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+export { Header, Header2 };
+
+
+
+
+
+
+
+
+
+
+

@@ -5,15 +5,14 @@ import "./Chat.css";
 import { useEffect } from "react";
 import { userChats } from "../../Api/api";
 
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 
 const Chat = () => {
-  
   const socket = useRef();
-  
-  const { user } = useSelector((state) => state.user)
-  
+
+  const { user } = useSelector((state) => state.user);
+
   const [chats, setChats] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -44,10 +43,10 @@ const Chat = () => {
 
   // Send Message to socket server
   useEffect(() => {
-    if (sendMessage!==null) {
-      socket.current.emit("send-message", sendMessage);}
+    if (sendMessage !== null) {
+      socket.current.emit("send-message", sendMessage);
+    }
   }, [sendMessage]);
-
 
   // Get the message from socket server
   useEffect(() => {
@@ -56,7 +55,6 @@ const Chat = () => {
     });
   }, []);
 
-
   //check user online status
   const checkOnlineStatus = (chat) => {
     const chatMember = chat.members.find((member) => member !== user._id);
@@ -64,23 +62,21 @@ const Chat = () => {
     return online ? true : false;
   };
 
-
-
   return (
     <div className="Chat-item">
-       
       <div className="Left-side-chat">
-         
         <div className="Chat-container">
           <h2>Chats</h2>
           <div className="Chat-list">
             {chats.map((chat) => (
               <div
-                 onClick={() => {
+                key={chat._id}
+                onClick={() => {
                   setCurrentChat(chat);
                 }}
               >
                 <Conversation
+                  key={chat._id}
                   data={chat}
                   currentUser={user._id}
                   online={checkOnlineStatus(chat)}
@@ -99,7 +95,7 @@ const Chat = () => {
           currentUser={user._id}
           setSendMessage={setSendMessage}
           receivedMessage={receivedMessage}
-          onlineUsers ={onlineUsers}
+          onlineUsers={onlineUsers}
         />
       </div>
     </div>

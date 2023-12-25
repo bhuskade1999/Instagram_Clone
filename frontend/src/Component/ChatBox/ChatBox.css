@@ -93,12 +93,15 @@
 }
 
 
+ 
+
 .button {
+  
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    border: none;
+    border: 3px solid green;
     border-radius: 0.5rem;
     background: var(--buttonBg);
     transition: all 100ms ease-out;
@@ -119,18 +122,20 @@
 .chat-sender {
     background: rgb(7, 7, 7);
     display: flex;
-    justify-content: space-between;
+    justify-content:  space-evenly;
     height: 3.5rem;
     align-items: center;
     gap: 1rem;
     padding: 0.8rem;
     border-radius: 1rem;
     align-self: end;
-    border: 2px solid black;
+    border: 2px solid rgb(11, 10, 10);
 }
 
+ 
+
 .chat-sender>input{
-  width: 77%;
+  width: 80%;
   padding: 0.60vmax 1vmax;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.288);
@@ -140,21 +145,36 @@
 }
 
 
-.chat-sender>div:nth-of-type(1)
-{
-    background: rgb(233, 233, 233);
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    cursor: pointer
+
+.share-button{
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  border: 2px solid green;
+  background-color: rgb(7, 65, 7);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 100ms ease-out;
+  
 }
-.chat-sender>div{
-    height: 70%;
-    padding: 0px 15px 0px 15px;
-   
+
+.share-button >svg{
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
 }
+
+.share-button:hover {
+  color: white;
+  
+  cursor: pointer;
+  background: transparent;
+}
+
+
+ 
 
  
 

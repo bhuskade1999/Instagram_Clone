@@ -49,26 +49,7 @@
     display: flex;
  }
 
- .details > div{
-    padding: 8px;
-
- }
-
- .details > div > h5{
-    font-family: revert;
- }
-
- .details > div > button {
-    cursor: pointer;
-    border-radius: 10%;
-    font-family: revert;
-    margin-top: 5px;
- }
-
- .details > div > button >h5 {
-    font-family: revert;
-    font-size: 1.2rem;
- }
+  
 
 
 
@@ -210,5 +191,27 @@
     cursor: pointer;
     }
 
+
+
+    .down-back >a{
+        background: none;
+        border: none;
+    }
+
+    .down-back >a>svg{
+        font-size: 1.5rem;
+        color: Blue;
+    }
+
+ .dropdown-list >li > a  {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+ }
+ .dropdown-list >li > button  {
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+ }
 
 

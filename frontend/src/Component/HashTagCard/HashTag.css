@@ -1,0 +1,52 @@
+.hashtag-container{
+  width: 100%;
+  overflow: scroll;
+  
+}
+
+.hashtag-count{
+  width: 98%;
+  height: 50px;
+  border: 2px solid black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  margin: 10px 10px;
+  gap: 10px;
+  
+}
+
+.hashtag-count >span{
+  font-size: 1.8rem;
+}
+
+.hashtag-post{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  gap: 20px;
+ 
+}
+
+
+ 
+ 
+ .hashtag-post >img{
+width: 30%;
+height: 400px;
+object-fit: cover;
+border: 2px solid rgb(59, 60, 59);
+ 
+ }
+
+  
+
+.hashtag-post-container{
+  width: 500px;
+  background-image: linear-gradient(to right, #fff5bc, #cec1ff);
+}
+
+  
+ 
+ 
